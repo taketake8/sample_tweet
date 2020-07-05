@@ -25,5 +25,6 @@ Route::group(['middleware' => 'auth'], function() {
 
     // ユーザ関連
     Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update']]);
-
+    // 投稿機能関連
+    Route::resource('tweets', 'TweetsController', ['only' => ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']]);
 });
