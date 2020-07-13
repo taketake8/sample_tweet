@@ -14,11 +14,19 @@ class TweetsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+     public function index()
     {
-        //
+        // followed_idだけ抜き出す
+        $user = auth()->user();
+        $tweets = Tweet::paginate(5);
 
+
+        return view('tweets.index', [
+            'user'      => $user,
+            'tweets' => $tweets
+        ]);
     }
+    
 
     /**
      * Show the form for creating a new resource.
