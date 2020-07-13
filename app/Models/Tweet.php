@@ -28,4 +28,13 @@ class Tweet extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function tweetStore(Int $user_id, Array $data)
+    {
+        $this->user_id = $user_id;
+        $this->text = $data['text'];
+        $this->save();
+
+        return;
+    }
 }
