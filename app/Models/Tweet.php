@@ -37,4 +37,9 @@ class Tweet extends Model
 
         return;
     }
+
+    public function getTweet(Int $tweet_id)
+    {
+        return $this->with('user')->where('id', $tweet_id)->first();
+    }
 }
